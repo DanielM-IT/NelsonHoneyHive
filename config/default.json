@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://Daniel:Glisten1@nelsonhoneyhivecluster-co937.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "6cf9d669f194832b5de0",
+  "githubSecret": "f5caf91caf5b5436759840bf54ea0f0744187054"
+}
