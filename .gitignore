@@ -124,3 +124,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Development Files
+config/default.json

@@ -9,7 +9,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <ul>
             <li>
-                <Link to='/account'>My Hive</Link>
+                <Link to='/profiles'>Producers</Link>
+            </li>
+            <li>
+                <Link to='/posts'>Community</Link>
+            </li>
+            <li>
+                <Link to='/account'>
+                    <i className='fas fa-user' />{' '}
+                    <span className='hide-sm'>My Hive</span>
+                </Link>
             </li>
             <li>
                 <a onClick={logout} href='#!'>
@@ -24,7 +33,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const guestLinks = (
         <ul>
             <li>
-                <Link to='/profiles'>Developers</Link>
+                <Link to='/profiles'>Producers</Link>
             </li>
             <li>
                 <Link to='/register'>Register</Link>
