@@ -8,7 +8,7 @@ const app = express()
 connectDB()
 
 // Initialize Middleware
-app.use(express.json())
+app.use(express.json({ extended: false }))
 
 // Development Route
 // app.get('/', (req, res) => res.send('API running'))
