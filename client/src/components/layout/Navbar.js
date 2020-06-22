@@ -6,13 +6,24 @@ import { logout } from '../../actions/auth'
 
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
-    const authLinks = (
+        const leftAuthLinks = (
         <ul>
             <li>
                 <Link to='/profiles'>Producers</Link>
             </li>
             <li>
                 <Link to='/posts'>Community</Link>
+            </li>
+            <li>
+                <Link to='/support'>Support</Link>
+            </li>
+        </ul>
+    )
+
+    const rightAuthLinks = (
+        <ul>
+            <li>
+                <Link to='/shop'>Shop</Link>
             </li>
             <li>
                 <Link to='/account'>
@@ -25,15 +36,28 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     <i className='fas fa-sign-out-alt' />{' '}
                     <span className='hide-sm'>Logout</span>
                 </a>
-                {/* <Link to='/profiles'>Developers</Link> */}
             </li>
         </ul>
     )
 
-    const guestLinks = (
+    const leftGuestLinks = (
         <ul>
             <li>
                 <Link to='/profiles'>Producers</Link>
+            </li>
+            <li>
+                <Link to='/posts'>Community</Link>
+            </li>
+            <li>
+                <Link to='/support'>Support</Link>
+            </li>
+        </ul>
+    )
+
+    const rightGuestLinks = (
+        <ul>
+            <li>
+                <Link to='/shop'>Shop</Link>
             </li>
             <li>
                 <Link to='/register'>Register</Link>
@@ -46,12 +70,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
     return (
         <nav className="navbar bg-dark">
+        <div></div>
+            {!loading && (<Fragment>{isAuthenticated ? leftAuthLinks : leftGuestLinks}</Fragment>)}
             <h1>
                 <Link to='/'>
                     Nelson Honey Hive
                 </Link>
             </h1>
-            {!loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)}
+            {!loading && (<Fragment>{isAuthenticated ? rightAuthLinks : rightGuestLinks}</Fragment>)}
         </nav>
     )
 }
@@ -66,3 +92,4 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, { logout })(Navbar)
+
