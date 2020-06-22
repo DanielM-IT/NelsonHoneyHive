@@ -5,17 +5,16 @@ import { PropTypes } from 'prop-types'
 
 const Landing = ({ isAuthenticated }) => {
     if (isAuthenticated) {
-        return <Redirect to='/account' />
+        // return <Redirect to='/account' />
     }
 
     return (
         <section className="landing">
             <div className="dark-overlay">
                 <div className="landing-inner">
-                    <h1 className="x-large">Random Words</h1>
+                    <h1 className="x-large">Buy and Sell Quality Honey</h1>
                     <p className="lead">
-                        Create a developer profile/portfolio, share posts and get help from
-                        other developers
+                        Create a producer profile, sell honey and bid on auctions.
                     </p>
                     <div className="buttons">
                         <Link to='/register' className="btn btn-primary">

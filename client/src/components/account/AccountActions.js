@@ -9,7 +9,7 @@ const AccountActions = () => {
             <Link to="add-experience" className="btn btn-light">
                 <i className="fa fa-gavel text-primary"></i> Add Auction</Link>
             <Link to="add-education" className="btn btn-light">
-                <i className="fa fa-pencil text-primary"></i> Edit Auction</Link>
+                <i className="fa fa-pencil text-primary"></i> View Auctions</Link>
         </div>
     )
 }
