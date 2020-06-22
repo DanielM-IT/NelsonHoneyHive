@@ -6,7 +6,7 @@ import { logout } from '../../actions/auth'
 
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
-        const leftAuthLinks = (
+    const leftAuthLinks = (
         <ul>
             <li>
                 <Link to='/profiles'>Producers</Link>
@@ -23,7 +23,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const rightAuthLinks = (
         <ul>
             <li>
-                <Link to='/shop'>Shop</Link>
+                <Link to='/auctions'>Browse</Link>
             </li>
             <li>
                 <Link to='/account'>
@@ -70,7 +70,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
     return (
         <nav className="navbar bg-dark">
-        <div></div>
+            <div></div>
             {!loading && (<Fragment>{isAuthenticated ? leftAuthLinks : leftGuestLinks}</Fragment>)}
             <h1>
                 <Link to='/'>

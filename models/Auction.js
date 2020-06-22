@@ -26,6 +26,9 @@ const AuctionSchema = new mongoose.Schema({
         type: mongoose.Types.Decimal128,
         required: true
     },
+    currentprice: {
+        type: mongoose.Types.Decimal128
+    },
     reserve: {
         type: mongoose.Types.Decimal128,
         required: true

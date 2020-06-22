@@ -39,6 +39,7 @@ router.post(
             imageurl,
             enddate,
             startbid,
+            currentprice,
             reserve,
             shipping
         } = req.body
@@ -51,6 +52,7 @@ router.post(
         if (imageurl) auctionFields.imageurl = imageurl
         if (enddate) auctionFields.enddate = enddate
         if (startbid) auctionFields.startbid = startbid
+        if (currentprice) auctionFields.currentprice = currentprice
         if (reserve) auctionFields.reserve = reserve
         if (shipping) auctionFields.shipping = shipping
 
