@@ -73,15 +73,15 @@ router.post(
 // @access   Private
 router.get('/:user_id', auth, async (req, res) => {
     try {
-        const auctions = await Auction.find({ seller: req.params.user_id })
+        const auction = await Auction.find({ seller: req.params.user_id })
 
-        if (!auctions.length) {
+        if (!auction.length) {
             return res.status(400).json({
                 msg: 'No auctions.'
             })
         }
 
-        res.json(auctions)
+        res.json(auction)
     } catch (error) {
         console.error(error.message)
         res.status(500).send('Server Error')
@@ -98,9 +98,8 @@ router.get('/', async (req, res) => {
         if (!auctions.length) {
             return res.status(400).json({
                 msg: 'No auctions.'
-            })
+            }) 
         }
-
         res.json(auctions)
     } catch (error) {
         console.error(error.message)

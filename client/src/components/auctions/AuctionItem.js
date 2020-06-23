@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const AuctionItem = ({
     auction: {
-        name,
+        seller: { _id, name },
         imageurl,
         currentprice
     } }) => {
@@ -14,6 +14,10 @@ const AuctionItem = ({
             <div>
                 <h2>{name}</h2>
                 <p className="my-1">{currentprice}</p>
+                <Link to={`/profile/${_id}`} className='btn btn-primary'>
+                    View Producer
+                </Link>
+
             </div>
         </div>
     )

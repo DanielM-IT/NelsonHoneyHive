@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { setAlert } from './alert'
 
-import {
+import { 
     GET_AUCTIONS,
     AUCTION_ERROR
 } from './types'
