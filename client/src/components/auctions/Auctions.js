@@ -9,21 +9,22 @@ const Auctions = ({ getCurrentAuctions, auction: { auctions, loading } }) => {
     useEffect(() => {
         getCurrentAuctions()
     }, [getCurrentAuctions])
+
     return <Fragment>
         {loading ? <Spinner /> :
             <Fragment>
-        <h1 className="large text-primary">Auctions</h1>
-        <p className="lead">
+                <h1 className="large text-primary">Products</h1>
+                <p className="lead">
                     <i className="fab fa-connectdevelop"> Browse current auctions</i>
                 </p>
-                <div className="profiles">
+                <div className="auctions">
                     {auctions.length > 0 ? (
                         auctions.map(auction => (
-                            <AuctionItem key={auction._id} auction={auctions} />
+                            <AuctionItem key={auction._id} auction={auction} />
                         ))
                     ) : <h4>No auctions found...</h4>}
                 </div>
-        </Fragment>}
+            </Fragment>}
     </Fragment>
 }
 

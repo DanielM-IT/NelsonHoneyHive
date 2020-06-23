@@ -205,6 +205,10 @@ img {
   border: #ccc solid 1px;
 }
 
+.bg-yellow {
+  background: #FFD87F;
+}
+
 .btn:hover {
   opacity: 0.8;
 }
@@ -486,6 +490,24 @@ button {
   color: #aaa;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+}
+
+/* Auctions Page */
+.auctions {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 2rem;
+}
+
+.auction {
+  padding: .5rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Mobile Styles */

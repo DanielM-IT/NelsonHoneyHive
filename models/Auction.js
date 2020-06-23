@@ -23,20 +23,21 @@ const AuctionSchema = new mongoose.Schema({
         default: false
     },
     startbid: {
-        type: mongoose.Types.Decimal128,
+        type: Number,
         required: true
     },
     currentprice: {
-        type: mongoose.Types.Decimal128
+        type: Number,
+        required: true
     },
     reserve: {
-        type: mongoose.Types.Decimal128,
+        type: Number,
         required: true
     },
     bid: [
         {
             amount: {
-                type: mongoose.Types.Decimal128,
+                type: Number,
                 required: true
             },
             biddate: {
@@ -54,7 +55,7 @@ const AuctionSchema = new mongoose.Schema({
         default: 0
     },
     shipping: {
-        type: mongoose.Types.Decimal128,
+        type: Number,
         required: true
     },
     seller: {

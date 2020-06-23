@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { setAlert } from './alert'
 
-import { 
+import {
+    GET_AUCTION,
     GET_AUCTIONS,
     AUCTION_ERROR
 } from './types'
@@ -18,7 +19,7 @@ export const getCurrentAuctions = () => async dispatch => {
     } catch (error) {
         dispatch({
             type: AUCTION_ERROR,
-            payload: { msg: error.response.statusText, status: error.response.status }
+            payload: { msg: error.response, status: error.response }
         })
     }
 }

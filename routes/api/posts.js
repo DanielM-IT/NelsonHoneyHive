@@ -19,8 +19,8 @@ router.post('/',
         auth,
         [
             check('text', 'Text is required')
-            .not()
-            .isEmpty()
+                .not()
+                .isEmpty()
         ]
     ],
     async (req, res) => {
@@ -189,8 +189,8 @@ router.post('/comment/:id',
         auth,
         [
             check('text', 'Text is required')
-            .not()
-            .isEmpty()
+                .not()
+                .isEmpty()
         ]
     ],
     async (req, res) => {

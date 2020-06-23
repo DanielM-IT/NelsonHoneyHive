@@ -23,7 +23,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const rightAuthLinks = (
         <ul>
             <li>
-                <Link to='/auctions'>Browse</Link>
+                <Link to='/auctions'>Browse Store</Link>
             </li>
             <li>
                 <Link to='/account'>
@@ -57,7 +57,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const rightGuestLinks = (
         <ul>
             <li>
-                <Link to='/shop'>Shop</Link>
+                <Link to='/auctions'>Browse Store</Link>
             </li>
             <li>
                 <Link to='/register'>Register</Link>

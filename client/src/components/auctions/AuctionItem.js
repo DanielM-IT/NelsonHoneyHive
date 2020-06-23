@@ -1,24 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-
 const AuctionItem = ({
     auction: {
-        seller: { _id, name },
+        _id,
+        name,
         imageurl,
         currentprice
     } }) => {
-    return (
-        <div className='profile bg-light'>
-            <img src={imageurl} alt="" className='round-img' />
-            <div>
-                <h2>{name}</h2>
-                <p className="my-1">{currentprice}</p>
-                <Link to={`/profile/${_id}`} className='btn btn-primary'>
-                    View Producer
-                </Link>
 
-            </div>
+    return (
+        <div className='bg-white'>
+            <Link to={`/auction/${_id}`} className='auction bg-yellow'>
+                <img src={imageurl} alt="" className='round-img' />
+            </Link>
+            <Link to={`/auction/${_id}`} className='auction'>
+                <h2>{name} ${currentprice}</h2>
+            </Link>
         </div>
     )
 }
