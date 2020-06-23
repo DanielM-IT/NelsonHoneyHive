@@ -107,7 +107,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-// @route    GET api/auctions/:auction_id
+// @route    GET api/:auction_id
 // @desc     Get auctions by auction id
 // @access   Public
 router.get('/:auction_id', async (req, res) => {

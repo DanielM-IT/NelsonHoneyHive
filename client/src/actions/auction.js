@@ -23,3 +23,19 @@ export const getCurrentAuctions = () => async dispatch => {
         })
     }
 }
+
+// Get auction by ID
+export const getAuctionById = auctionId => async dispatch => {
+    try {
+        const res = await axios.get(`/api/auctions/${auctionId}`)
+        dispatch({
+            type: GET_AUCTION,
+            payload: res.data
+        })
+    } catch (error) {
+        dispatch({
+            type: AUCTION_ERROR,
+            payload: { msg: error.response, status: error.response }
+        })
+    }
+}
