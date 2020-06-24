@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const AuctionItem = ({
     auction: {
         _id,
-        name,
+        listingname,
         imageurl,
         currentprice
     } }) => {
@@ -15,7 +15,7 @@ const AuctionItem = ({
                 <img src={imageurl} alt="" className='round-img' />
             </Link>
             <Link to={{ pathname: `/auction/${_id}`, data: _id }} className='auction'>
-                <h2>{name} ${currentprice}</h2>
+                <h2>{listingname} ${currentprice}</h2>
             </Link>
         </div>
     )

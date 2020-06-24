@@ -169,7 +169,7 @@ const ProfileForm = ({
                         type="button"
                         className="btn btn-light"
                     >
-                        Add Social Network Links
+                        Add Social Network Linkst
           </button>
                     <span>Optional</span>
                 </div>

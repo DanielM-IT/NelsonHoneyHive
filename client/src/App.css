@@ -44,6 +44,10 @@ img {
   margin-bottom: 3rem;
 }
 
+.preserve-whitespace {
+  white-space: pre-wrap;
+}
+
 /* Text Styles*/
 .x-large {
   font-size: 4rem;
@@ -492,11 +496,16 @@ button {
   margin-bottom: 0.5rem;
 }
 
-/* Auctions Page */
-.auctions {
+/* Auctions Pages */
+.auctions-grid {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   grid-gap: 2rem;
+}
+
+.auctions-grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
 }
 
 .auction {

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const AuctionSchema = new mongoose.Schema({
-    name: {
+    listingname: {
         type: String,
         required: true
     },
@@ -33,6 +33,10 @@ const AuctionSchema = new mongoose.Schema({
     reserve: {
         type: Number,
         required: true
+    },
+    reservemet: {
+        type: Boolean,
+        default: false
     },
     bid: [
         {

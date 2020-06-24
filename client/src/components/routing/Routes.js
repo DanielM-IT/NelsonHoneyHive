@@ -12,7 +12,8 @@ import Profile from '../profile/Profile'
 import Posts from '../posts/Posts'
 import Post from '../post/Post'
 import Auctions from '../auctions/Auctions'
-import Auction from '../auctions/Auction'
+import Auction from '../auction/Auction'
+import NotFound from '../layout/NotFound'
 import PrivateRoute from '../routing/PrivateRoute'
 
 
@@ -33,6 +34,7 @@ const Routes = props => {
                 <PrivateRoute exact path='/posts/:id' component={Post} />
                 <PrivateRoute exact path='/add-experience' component={AddExperience} />
                 <PrivateRoute exact path='/add-education' component={AddEducation} />
+                <Route component={NotFound} />
             </Switch>
         </section>
     )

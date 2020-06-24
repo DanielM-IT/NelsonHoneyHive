@@ -19,7 +19,7 @@ router.post(
     [
         auth,
         [
-            check('name', 'Name is required.').not().isEmpty(),
+            check('listingname', 'isting name is required.').not().isEmpty(),
             check('startbid', 'Startbid is required.').not().isEmpty(),
             check('reserve', 'Reserve is required.').not().isEmpty(),
             check('currentprice', 'Current price is required.').not().isEmpty(),
@@ -34,7 +34,7 @@ router.post(
         }
 
         const {
-            name,
+            listingname,
             description,
             imageurl,
             enddate,
@@ -47,7 +47,7 @@ router.post(
         // Build auction object
         const auctionFields = {}
         auctionFields.seller = req.user.id
-        if (name) auctionFields.name = name
+        if (listingname) auctionFields.listingname = listingname
         if (description) auctionFields.description = description
         if (imageurl) auctionFields.imageurl = imageurl
         if (enddate) auctionFields.enddate = enddate

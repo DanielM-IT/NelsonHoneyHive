@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     setAuthToken(localStorage.token)
     store.dispatch(loadUser())
-  }, [])
+  }, [setAuthToken, localStorage.token])
 
   return (
     <Provider store={store}>
