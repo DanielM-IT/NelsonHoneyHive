@@ -42,17 +42,7 @@ const Auction = ({ getAuctionById, auction: { singleAuction, loading }, match })
                             </div>
                             <div className="bg-light p-1">
                                 <h4>Bids</h4>
-                                {singleAuction.bid.length > 0 ? (
-                                    <Fragment>
-                                        {singleAuction.bid.map((bid) => (
-                                            <Bids
-                                                key={bid._id}
-                                                bid={bid} />
-                                        ))}
-                                    </Fragment>
-                                ) : (
-                                        <h4>No bids placed</h4>
-                                    )}
+                                <h4>No bids placed</h4>
                             </div>
                         </div>
                     </div>

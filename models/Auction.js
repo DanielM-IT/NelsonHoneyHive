@@ -38,22 +38,6 @@ const AuctionSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    bid: [
-        {
-            amount: {
-                type: Number,
-                required: true
-            },
-            biddate: {
-                type: Date,
-                default: Date.now
-            },
-            biddername: {
-                type: String,
-                required: true
-            }
-        }
-    ],
     numberofbids: {
         type: Number,
         default: 0

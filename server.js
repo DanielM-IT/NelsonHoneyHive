@@ -19,6 +19,7 @@ app.use('/api/auth', require('./routes/api/auth'))
 app.use('/api/profile', require('./routes/api/profile'))
 app.use('/api/posts', require('./routes/api/posts'))
 app.use('/api/auctions', require('./routes/api/auctions'))
+app.use('/api/bids', require('./routes/api/bids'))
 
 // Deployment route
 // Serve static assets in production
