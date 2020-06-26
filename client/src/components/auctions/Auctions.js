@@ -31,8 +31,7 @@ const Auctions = ({ getCurrentAuctions, auction: { auctions, loading } }) => {
 }
 
 Auctions.propTypes = {
-    getCurrentAuctions: PropTypes.func.isRequired,
-    auction: PropTypes.object.isRequired
+    getCurrentAuctions: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

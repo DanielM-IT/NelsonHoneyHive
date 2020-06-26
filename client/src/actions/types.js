@@ -24,6 +24,12 @@ export const ADD_COMMENT = 'ADD_COMMENT'
 export const REMOVE_COMMENT = 'REMOVE_COMMENT'
 export const GET_AUCTION = 'GET_AUCTION'
 export const GET_AUCTIONS = 'GET_AUCTIONS'
+export const UPDATE_AUCTION = 'UPDATE_AUCTION'
 export const AUCTION_ERROR = 'AUCTION_ERROR'
+export const GET_BIDS = 'GET_BIDS'
+export const ADD_BID = 'ADD_BID'
+export const CLEAR_BIDS = 'CLEAR_BIDS'
+export const BID_ERROR = 'BID_ERROR'
+
 
 

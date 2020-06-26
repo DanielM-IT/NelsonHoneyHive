@@ -11,12 +11,11 @@ const AuctionDetails = ({
     }
 
 }) => {
-    console.log()
     return (
-        <div className="bg-light p-1">
+        <div>
             <h3>{listingname}</h3><br />
             <h4>Closes</h4>
-            <Moment format="DD/MM/YYYY - HH:MM A">{moment.utc(enddate)}</Moment><br />
+            <Moment format="DD/MM/YYYY - HH:MM A">{moment(enddate)}</Moment><br />
             <h4>Shipping</h4>
             ${shipping}<br />
             <h4>Description</h4>

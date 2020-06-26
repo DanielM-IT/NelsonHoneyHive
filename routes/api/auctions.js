@@ -100,6 +100,7 @@ router.get('/', async (req, res) => {
                 msg: 'No auctions.'
             })
         }
+        console.log(auctions)
         res.json(auctions)
     } catch (error) {
         console.error(error.message)
@@ -107,7 +108,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-// @route    GET api/:auction_id
+// @route    GET api/auctions/:auction_id
 // @desc     Get auctions by auction id
 // @access   Public
 router.get('/:auction_id', async (req, res) => {
@@ -126,44 +127,53 @@ router.get('/:auction_id', async (req, res) => {
     }
 })
 
-// @route    PUT api/auctions/bid
-// @desc     Add auction bid
+// @route    PUT api/auctions/:auction_id
+// @desc     Update an auction by id
 // @access   Private
 router.put(
-    '/bid/:id',
-    [
-        auth,
-        [
-            check('amount', 'Amount is required').not().isEmpty(),
-            check('biddername', 'Bidder name is required').not().isEmpty()
-        ],
-    ],
-    async (req, res) => {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                errors: errors.array(),
-            })
-        }
+    '/:id', auth, async (req, res) => {
 
         const {
-            amount,
-            biddername
+            listingname,
+            description,
+            imageurl,
+            enddate,
+            closed,
+            startbid,
+            currentprice,
+            reserve,
+            reservemet,
+            numberofbids,
+            shipping
         } = req.body
 
-        const newBid = {
-            amount,
-            biddername
-        }
+        // Build auction object
+        const auctionFields = {}
+        auctionFields.seller = req.user.id
+        if (listingname) auctionFields.listingname = listingname
+        if (description) auctionFields.description = description
+        if (imageurl) auctionFields.imageurl = imageurl
+        if (enddate) auctionFields.enddate = enddate
+        if (closed) auctionFields.closed = closed
+        if (startbid) auctionFields.startbid = startbid
+        if (currentprice) auctionFields.currentprice = currentprice
+        if (reserve) auctionFields.reserve = reserve
+        if (reservemet) auctionFields.reservemet = reservemet
+        if (numberofbids) auctionFields.numberofbids = numberofbids
+        if (shipping) auctionFields.shipping = shipping
+
+        const auctionId = req.params.id
+        console.log(auctionId)
 
         try {
-            const auction = await Auction.findById(req.params.id)
+            const auction = await Auction.findByIdAndUpdate(
+                auctionId,
+                {
+                    $set: auctionFields
+                }
+            )
 
-            auction.bid.unshift(newBid)
-
-            await auction.save()
-
-            res.json(auction)
+            return res.json(auction)
         } catch (error) {
             console.error(error.message)
             res.status(500).send('Server Error')

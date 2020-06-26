@@ -4,11 +4,13 @@ import auth from './auth'
 import profile from './profile'
 import post from './post'
 import auction from './auction'
+import bid from './bid'
 
 export default combineReducers({
     alert,
     auth,
     profile,
     post,
-    auction
+    auction,
+    bid
 })

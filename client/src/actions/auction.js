@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { setAlert } from './alert'
 
 import {
     GET_AUCTION,
     GET_AUCTIONS,
-    AUCTION_ERROR
+    AUCTION_ERROR,
+    UPDATE_AUCTION
 } from './types'
 
 // Get all auctions not closed
@@ -30,6 +30,29 @@ export const getAuctionById = auctionId => async dispatch => {
         const res = await axios.get(`/api/auctions/${auctionId}`)
         dispatch({
             type: GET_AUCTION,
+            payload: res.data
+        })
+    } catch (error) {
+        dispatch({
+            type: AUCTION_ERROR,
+            payload: { msg: error.response, status: error.response }
+        })
+    }
+}
+
+// Update auction by ID
+export const updateAuctionById = (auctionId, formData) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const res = await axios.put(`/api/auctions/${auctionId}`, formData, config)
+
+        dispatch({
+            type: UPDATE_AUCTION,
             payload: res.data
         })
     } catch (error) {

@@ -53,13 +53,7 @@ router.post(
 // @access   Public
 router.get('/:id', async (req, res) => {
     try {
-        const bids = await Bid.find({ auctionid: req.params.id })
-        console.log(bids)
-        if (!bids.length) {
-            return res.status(400).json({
-                msg: 'No bids.'
-            })
-        }
+        const bids = await Bid.find({ auctionid: req.params.id }).sort({ "amount": -1 }).limit(5)
 
         res.json(bids)
     } catch (error) {

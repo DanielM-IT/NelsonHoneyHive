@@ -21,7 +21,7 @@ router.get('/me', auth, async (req, res) => {
         }).populate('user', ['name', 'avatar'])
 
         if (!profile) {
-            return res.status(400).json({
+            return res.status(404).json({
                 msg: 'There is no profile for this user ',
             })
         }
@@ -142,7 +142,7 @@ router.get('/user/:user_id', async (req, res) => {
         }).populate('user', ['name', 'avatar'])
 
         if (!profile)
-            return res.status(400).json({
+            return res.status(404).json({
                 msg: 'Profile not found.',
             })
 

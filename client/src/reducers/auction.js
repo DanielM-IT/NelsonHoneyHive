@@ -1,7 +1,8 @@
 import {
     GET_AUCTION,
     GET_AUCTIONS,
-    AUCTION_ERROR
+    AUCTION_ERROR,
+    UPDATE_AUCTION
 } from '../actions/types'
 
 const initialState = {
@@ -15,6 +16,7 @@ export default function (state = initialState, action) {
     const { type, payload } = action
     switch (type) {
         case GET_AUCTION:
+        case UPDATE_AUCTION:
             return {
                 ...state,
                 singleAuction: payload,
