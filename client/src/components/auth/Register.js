@@ -10,12 +10,22 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     name: '',
     email: '',
     password: '',
-    password2: ''
+    password2: '',
+    isSeller: false
   })
 
-  const { name, email, password, password2 } = formData
+  const { name, email, password, password2, isSeller } = formData
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
+
+  const handleCheckBoxClick = e => {
+    setFormData((prevState) => {
+      return {
+        ...formData,
+        isSeller: !prevState.isSeller
+      }
+    })
+  }
 
   const onSubmit = e => {
     e.preventDefault()
@@ -23,11 +33,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       setAlert('Passwords do not match.', 'danger')
     }
     else {
-      register({ name, email, password })
+      register({ name, email, password, isSeller })
     }
   }
-
-  // Redirect if logged in
+  console.log(isSeller)
+  // Redirect if logged in 
   if (isAuthenticated) {
     return <Redirect to='/account' />
   }
@@ -59,8 +69,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           // required
           />
           <small className="form-text">
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
+            This site uses Gravatar. Please use a Gravatar email if you would like a profile picture.
           </small>
         </div>
         <div className="form-group">
@@ -82,6 +91,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={e => onChange(e)}
           // minLength="6"
           />
+        </div>
+        <div className="form-group">
+          <input type="checkbox" id="isSeller" name="isSeller" value="isSeller" onChange={handleCheckBoxClick} />
+          <label for="isSeller"> Will you be selling honey products?</label>
         </div>
         <input
           type="submit"

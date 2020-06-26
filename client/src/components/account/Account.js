@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
 import AccountActions from './AccountActions'
-import Experience from './Experience'
-import Education from './Education'
 import { getCurrentProfile, deleteAccount } from '../../actions/profile'
 
 const Account = ({
@@ -18,6 +16,8 @@ const Account = ({
         getCurrentProfile()
     }, [getCurrentProfile])
 
+    console.log(profile)
+
     return loading && profile === null ? (
         <Spinner />
     ) : (
@@ -28,10 +28,10 @@ const Account = ({
                 </p>
                 {profile !== null ? (
                     <Fragment>
-                        <AccountActions />
-                        <Experience experience={profile.experience} />
-                        <Education education={profile.education} />
-
+                        <AccountActions
+                        // user={profile} 
+                        />
+                        {/* Insert account details here */}
                         <div className="my-2">
                             <button className="btn btn-danger" onClick={() => deleteAccount()} >
                                 <i className="fas fa-user-minus"></i> Delete My Account

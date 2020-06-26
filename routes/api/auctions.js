@@ -100,7 +100,6 @@ router.get('/', async (req, res) => {
                 msg: 'No auctions.'
             })
         }
-        console.log(auctions)
         res.json(auctions)
     } catch (error) {
         console.error(error.message)
@@ -163,7 +162,6 @@ router.put(
         if (shipping) auctionFields.shipping = shipping
 
         const auctionId = req.params.id
-        console.log(auctionId)
 
         try {
             const auction = await Auction.findByIdAndUpdate(

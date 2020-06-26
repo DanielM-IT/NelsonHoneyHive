@@ -9,7 +9,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const leftAuthLinks = (
         <ul>
             <li>
-                <Link to='/profiles'>Producers</Link>
+                <Link to='/profiles'>Suppliers</Link>
             </li>
             <li>
                 <Link to='/posts'>Community</Link>
@@ -43,7 +43,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const leftGuestLinks = (
         <ul>
             <li>
-                <Link to='/profiles'>Producers</Link>
+                <Link to='/profiles'>Suppliers</Link>
             </li>
             <li>
                 <Link to='/posts'>Community</Link>

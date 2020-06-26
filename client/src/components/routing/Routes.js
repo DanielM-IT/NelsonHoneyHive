@@ -5,8 +5,6 @@ import Login from '../auth/Login'
 import Alert from '../layout/Alert'
 import Account from '../account/Account'
 import ProfileForm from '../forms/ProfileForm'
-import AddExperience from '../forms/AddExperience'
-import AddEducation from '../forms/AddEducation'
 import Profiles from '../profiles/Profiles'
 import Profile from '../profile/Profile'
 import Posts from '../posts/Posts'
@@ -32,8 +30,6 @@ const Routes = () => {
                 <PrivateRoute exact path='/profile-form' component={ProfileForm} />
                 <PrivateRoute exact path='/posts' component={Posts} />
                 <PrivateRoute exact path='/posts/:id' component={Post} />
-                <PrivateRoute exact path='/add-experience' component={AddExperience} />
-                <PrivateRoute exact path='/add-education' component={AddEducation} />
                 <Route component={NotFound} />
             </Switch>
         </section>

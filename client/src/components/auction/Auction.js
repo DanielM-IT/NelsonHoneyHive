@@ -42,7 +42,7 @@ const Auction = ({
         if (isAuthenticated) {
             const auctionData = { ...initialState }
 
-            if (amount > singleAuction.currentprice || singleAuction.numberofbids == 0) {
+            if (amount > singleAuction.currentprice || singleAuction.numberofbids === 0) {
                 auctionData.currentprice = amount
                 auctionData.numberofbids += 1
                 if (amount >= singleAuction.reserve) {

@@ -8,9 +8,6 @@ const initialState = {
     company: '',
     website: '',
     location: '',
-    status: '',
-    skills: '',
-    githubusername: '',
     bio: '',
     twitter: '',
     facebook: '',
@@ -39,8 +36,6 @@ const ProfileForm = ({
             for (const key in profile.social) {
                 if (key in profileData) profileData[key] = profile.social[key]
             }
-            if (Array.isArray(profileData.skills))
-                profileData.skills = profileData.skills.join(', ')
             setFormData(profileData)
         }
     }, [loading, getCurrentProfile, profile])
@@ -49,9 +44,6 @@ const ProfileForm = ({
         company,
         website,
         location,
-        status,
-        skills,
-        githubusername,
         bio,
         twitter,
         facebook,
@@ -73,36 +65,20 @@ const ProfileForm = ({
             <h1 className="large text-primary">Edit Your Profile</h1>
             <p className="lead">
                 <i className="fas fa-user" /> Add some changes to your profile
-      </p>
+            </p>
             <small>* = required field</small>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-group">
-                    <select name="status" value={status} onChange={onChange}>
-                        <option>* Select Professional Status</option>
-                        <option value="Developer">Developer</option>
-                        <option value="Junior Developer">Junior Developer</option>
-                        <option value="Senior Developer">Senior Developer</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Student or Learning">Student or Learning</option>
-                        <option value="Instructor">Instructor or Teacher</option>
-                        <option value="Intern">Intern</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <small className="form-text">
-                        Give us an idea of where you are at in your career
-          </small>
-                </div>
-                <div className="form-group">
                     <input
                         type="text"
-                        placeholder="Company"
+                        placeholder="Company name"
                         name="company"
                         value={company}
                         onChange={onChange}
                     />
                     <small className="form-text">
                         Could be your own company or one you work for
-          </small>
+                    </small>
                 </div>
                 <div className="form-group">
                     <input
@@ -114,7 +90,7 @@ const ProfileForm = ({
                     />
                     <small className="form-text">
                         Could be your own or a company website
-          </small>
+                    </small>
                 </div>
                 <div className="form-group">
                     <input
@@ -125,37 +101,12 @@ const ProfileForm = ({
                         onChange={onChange}
                     />
                     <small className="form-text">
-                        City & state suggested (eg. Boston, MA)
-          </small>
-                </div>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        placeholder="* Skills"
-                        name="skills"
-                        value={skills}
-                        onChange={onChange}
-                    />
-                    <small className="form-text">
-                        Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
-          </small>
-                </div>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        placeholder="Github Username"
-                        name="githubusername"
-                        value={githubusername}
-                        onChange={onChange}
-                    />
-                    <small className="form-text">
-                        If you want your latest repos and a Github link, include your
-                        username
-          </small>
+                        City and/or state
+                    </small>
                 </div>
                 <div className="form-group">
                     <textarea
-                        placeholder="A short bio of yourself"
+                        placeholder="A short bio of yourself and your company"
                         name="bio"
                         value={bio}
                         onChange={onChange}

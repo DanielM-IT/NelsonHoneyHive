@@ -37,7 +37,8 @@ router.post(
     const {
       name,
       email,
-      password
+      password,
+      isSeller
     } = req.body
 
     try {
@@ -50,7 +51,7 @@ router.post(
         return res.status(400).json({
           errors: [{
             msg: 'User already exists',
-          }, ],
+          },],
         })
       }
 
@@ -66,6 +67,7 @@ router.post(
         email,
         avatar,
         password,
+        isSeller
       })
 
       // Encrypt password
@@ -85,8 +87,8 @@ router.post(
       jwt.sign(
         payload,
         config.get('jwtSecret'), {
-          expiresIn: 360000
-        },
+        expiresIn: 360000
+      },
         (error, token) => {
           if (error) throw error
           res.json({
