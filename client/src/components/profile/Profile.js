@@ -40,7 +40,6 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth, match })
 Profile.propTypes = {
     getProfileById: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({

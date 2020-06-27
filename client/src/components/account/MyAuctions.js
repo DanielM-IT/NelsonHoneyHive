@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
 import { getAuctionsByUserId } from '../../actions/auction'
@@ -24,6 +25,9 @@ const MyAuctions = ({
                         <p className="lead">
                             <i className="fab fa-connectdevelop"> View all your listings</i>
                         </p>
+                        <Link to="/account" className="btn btn-light my">
+                            Back To My Hive
+                        </Link>
                         <div className="auctions-grid">
                             {auctions.length > 0 ? (
                                 auctions.map(auction => (
@@ -32,7 +36,7 @@ const MyAuctions = ({
                             ) : <h4>No auctions found...</h4>}
                         </div>
                     </Fragment>}
-            </Fragment>
+            </Fragment >
         )
     }
     else {

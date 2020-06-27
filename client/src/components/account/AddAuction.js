@@ -1,10 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Moment from 'react-moment'
 import moment from 'moment'
 import { createAuction } from '../../actions/auction'
+import PriceCalculator from './PriceCalculator'
 
 
 const initialState = {
@@ -70,6 +70,7 @@ const AddAuction = ({
                         </div>
                         <div className="form-group">
                             <textarea
+                                className="textarea"
                                 placeholder="Description"
                                 name="description"
                                 value={description}
@@ -139,11 +140,8 @@ const AddAuction = ({
                         </Link>
                     </form>
                 </div>
-                <div>
-
-
-
-
+                <div className="p-3 m-3">
+                    <PriceCalculator />
                 </div>
             </div>
         </Fragment>

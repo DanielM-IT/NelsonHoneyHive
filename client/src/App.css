@@ -283,6 +283,10 @@ img {
 }
 
 /* Forms */
+.textarea {
+  resize: vertical;
+}
+
 .form .form-group {
   margin: 1.2rem 0;
 }

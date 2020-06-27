@@ -59,6 +59,7 @@ const Auction = ({
         else
             history.push('/login')
     }
+
     if (singleAuction != null) {
         return (
             <Fragment>
