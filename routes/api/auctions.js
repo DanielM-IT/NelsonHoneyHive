@@ -19,10 +19,9 @@ router.post(
     [
         auth,
         [
-            check('listingname', 'isting name is required.').not().isEmpty(),
+            check('listingname', 'Listing name is required.').not().isEmpty(),
             check('startbid', 'Startbid is required.').not().isEmpty(),
-            check('reserve', 'Reserve is required.').not().isEmpty(),
-            check('currentprice', 'Current price is required.').not().isEmpty(),
+            check('reserve', 'Reserve is required.').not().isEmpty()
         ]
     ],
     async (req, res) => {
@@ -71,17 +70,17 @@ router.post(
 // @route    GET api/auctions/:user_id
 // @desc     Get auctions by user id
 // @access   Private
-router.get('/user/:user_id', auth, async (req, res) => {
+router.get('/user/:user_id', async (req, res) => {
     try {
-        const auction = await Auction.find({ seller: req.params.user_id })
+        const auctions = await Auction.find({ seller: req.params.user_id })
 
-        if (!auction.length) {
+        if (!auctions.length) {
             return res.status(400).json({
                 msg: 'No auctions.'
             })
         }
 
-        res.json(auction)
+        res.json(auctions)
     } catch (error) {
         console.error(error.message)
         res.status(500).send('Server Error')

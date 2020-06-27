@@ -548,6 +548,11 @@ button {
   grid-template-columns: 6fr 6fr 5fr;
   grid-gap: 1rem;
 }
+.auctions-grid-3 {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  grid-gap: 1rem;
+}
 
 .img-section {
   align-self: center;

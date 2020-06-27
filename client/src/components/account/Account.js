@@ -1,9 +1,9 @@
 import React, { useEffect, Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
 import AccountActions from './AccountActions'
+import AccountDetails from './AccountDetails'
 import { getCurrentProfile, deleteAccount } from '../../actions/profile'
 
 const Account = ({
@@ -16,37 +16,32 @@ const Account = ({
         getCurrentProfile()
     }, [getCurrentProfile])
 
-    console.log(profile)
-
-    return loading && profile === null ? (
-        <Spinner />
-    ) : (
-            <Fragment>
-                <h1 className="large text-primary">Account</h1>
-                <p className="lead">
-                    <i className="fas fa-user"></i> Welcome {user && user.name}
-                </p>
-                {profile !== null ? (
+    if (user != null) {
+        return loading ? (
+            <Spinner />
+        ) : (
+                <Fragment>
+                    <h1 className="large text-primary">Account</h1>
+                    <p className="lead">
+                        <i className="fas fa-user"></i> Welcome {user && user.name}
+                    </p>
                     <Fragment>
-                        <AccountActions
-                        // user={profile} 
-                        />
-                        {/* Insert account details here */}
+                        <AccountActions user={user} />
+                        <AccountDetails user={user} />
                         <div className="my-2">
                             <button className="btn btn-danger" onClick={() => deleteAccount()} >
                                 <i className="fas fa-user-minus"></i> Delete My Account
                             </button>
                         </div>
                     </Fragment>
-                ) : (<Fragment>
-                    <p>You have not yet set up a profile, please add some info</p>
-                    <Link to='profile-form' className='btn btn-primary my-1'>
-                        Create profile
-                        </Link>
                 </Fragment>
-                    )}
-            </Fragment>
+            )
+    }
+    else {
+        return (
+            <Fragment />
         )
+    }
 }
 
 Account.propTypes = {

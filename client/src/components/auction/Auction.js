@@ -59,46 +59,52 @@ const Auction = ({
         else
             history.push('/login')
     }
-
-    return (
-        <Fragment>
-            {loading ? (<Spinner />) : (
-                <Fragment>
-                    <div className="auctions-grid-2 preserve-whitespace">
-                        <div className="img-section">
-                            <img src={singleAuction.imageurl} alt="" />
-                        </div>
-                        <div className="auction-section">
-                            <AuctionDetails singleAuction={singleAuction} />
-                        </div>
-                        <div>
-                            <div className="bg-light p-1 bid-section">
-                                <Bids currentBids={currentBids} />
+    if (singleAuction != null) {
+        return (
+            <Fragment>
+                {loading ? (<Spinner />) : (
+                    <Fragment>
+                        <div className="auctions-grid-2 preserve-whitespace">
+                            <div className="img-section">
+                                <img src={singleAuction.imageurl} alt="" />
                             </div>
-                            <div className="bg-light post-form p-1">
-                                <BidDetails singleAuction={singleAuction} />
-                                <form
-                                    className="form my-1"
-                                    onSubmit={onSubmit}
-                                >
-                                    <input
-                                        name="text"
-                                        type="text"
-                                        placeholder="Enter bid amount"
-                                        value={amount}
-                                        onChange={onChange}
-                                        required
-                                    />
-                                    <input type='submit' className='btn btn-green my-1 p-1' value='Place Bid' />
-                                </form>
+                            <div className="auction-section">
+                                <AuctionDetails singleAuction={singleAuction} />
                             </div>
+                            <div>
+                                <div className="bg-light p-1 bid-section">
+                                    <Bids currentBids={currentBids} />
+                                </div>
+                                <div className="bg-light post-form p-1">
+                                    <BidDetails singleAuction={singleAuction} />
+                                    <form
+                                        className="form my-1"
+                                        onSubmit={onSubmit}
+                                    >
+                                        <input
+                                            name="text"
+                                            type="text"
+                                            placeholder="Enter bid amount"
+                                            value={amount}
+                                            onChange={onChange}
+                                            required
+                                        />
+                                        <input type='submit' className='btn btn-green my-1 p-1' value='Place Bid' />
+                                    </form>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
-                </Fragment>
-            )}
-        </Fragment>
-    )
+                    </Fragment>
+                )}
+            </Fragment>
+        )
+    }
+    else {
+        return (
+            <Fragment />
+        )
+    }
 }
 
 Auction.propTypes = {

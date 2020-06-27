@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const AuctionItem = ({
+
+
+const MyAuction = ({
     auction: {
         _id,
         listingname,
@@ -20,4 +22,4 @@ const AuctionItem = ({
     )
 }
 
-export default AuctionItem
+export default MyAuction
