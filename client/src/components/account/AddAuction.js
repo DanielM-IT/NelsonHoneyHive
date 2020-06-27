@@ -48,7 +48,6 @@ const AddAuction = ({
         formData.currentprice = formData.startbid
         formData.seller = user._id
         formData.enddate = moment().add(auctionLength, 'days').toDate()
-        console.log(formData)
         createAuction(formData, history)
     }
 

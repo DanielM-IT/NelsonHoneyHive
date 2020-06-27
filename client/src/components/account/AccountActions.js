@@ -7,7 +7,6 @@ const AccountActions = ({
         isSeller
     }
 }) => {
-    console.log(_id)
     if (isSeller) {
         return (
             <div className="dash-buttons">

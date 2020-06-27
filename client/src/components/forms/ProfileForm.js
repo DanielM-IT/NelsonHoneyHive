@@ -66,7 +66,6 @@ const ProfileForm = ({
             <p className="lead">
                 <i className="fas fa-user" /> Add some changes to your profile
             </p>
-            <small>* = required field</small>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-group">
                     <input

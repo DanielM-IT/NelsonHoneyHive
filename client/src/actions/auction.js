@@ -89,7 +89,6 @@ export const createAuction = (formData, history) => async dispatch => {
                 'Content-Type': 'application/json'
             }
         }
-
         const res = await axios.post('api/auctions', formData, config)
 
         dispatch({
@@ -100,7 +99,7 @@ export const createAuction = (formData, history) => async dispatch => {
         dispatch(setAlert('Auction Created', 'success'))
 
 
-        history.push('/my-auctions')
+        history.push(`/my-auctions/${formData.seller}`)
 
     } catch (error) {
         const errors = error.response.data.errors
