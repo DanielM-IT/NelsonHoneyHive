@@ -4,6 +4,7 @@ const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config')
+const auth = require('../../middleware/auth')
 const {
   check,
   validationResult
@@ -98,6 +99,43 @@ router.post(
     } catch (error) {
       console.error(error.message)
       res.status(500).send('Server error.')
+    }
+  }
+)
+
+// @route    PUT api/users/:id
+// @desc     Edit user
+// @access   Private
+
+router.put(
+  '/:id', auth, async (req, res) => {
+
+    const {
+      name,
+      password,
+      isSeller
+    } = req.body
+
+    // Build user object
+    const userFields = {}
+    if (name) userFields.name = name
+    if (password) userFields.password = password
+    if (isSeller) userFields.isSeller = isSeller
+
+    const userId = req.user.id
+
+    try {
+      const user = await User.findByIdAndUpdate(
+        userId,
+        {
+          $set: userFields
+        }
+      )
+
+      return res.json(user)
+    } catch (error) {
+      console.error(error.message)
+      res.status(500).send('Server Error')
     }
   }
 )

@@ -417,9 +417,7 @@ button {
   display: grid;
   grid-template-areas:
     'top top'
-    'about about'
-    'exp edu'
-    'github github';
+    'about about';
   grid-gap: 1rem;
 }
 
@@ -457,53 +455,6 @@ button {
   text-align: center;
 }
 
-.profile-exp {
-  grid-area: exp;
-}
-
-.profile-edu {
-  grid-area: edu;
-}
-
-.profile-exp h2,
-.profile-edu h2 {
-  margin-bottom: 1rem;
-}
-
-.profile-exp > div,
-.profile-edu > div {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: #ccc 1px dotted;
-}
-
-.profile-exp > div:last-child,
-.profile-edu > div:last-child {
-  border: 0;
-}
-
-.profile-exp p,
-.profile-edu p {
-  margin: 0.5rem 0;
-}
-
-.profile-github {
-  grid-area: github;
-}
-
-.profile-github .repo {
-  display: flex;
-}
-
-.profile-github .repo > div:first-child {
-  flex: 7;
-  flex-basis: 70%;
-}
-
-.profile-github > div:last-child {
-  flex: 3;
-  flex-basis: 20%;
-}
 
 /* Posts Page */
 .post-form .post-form-header {
@@ -557,7 +508,11 @@ button {
   grid-template-columns: 3fr 3fr;
   grid-gap: 1rem;
 }
-
+.auctions-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
 .img-section {
   align-self: center;
   justify-self: left;
@@ -646,10 +601,7 @@ button {
   .profile-grid {
     grid-template-areas:
       'top'
-      'about'
-      'exp'
-      'edu'
-      'github';
+      'about';
   }
 
   .profile-about .skills {
@@ -669,4 +621,62 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
+
+  /* Auctions Pages */
+
+  .auctions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auctions-grid-2 {
+    border: none;
+    grid-template-columns: 1fr;
+  }
+
+  .auctions-grid-3 {
+    grid-template-columns: 1fr;
+    width: fit-content;
+    margin: 0rem;
+    padding: 1.5rem 0rem 0rem 0rem;
+    text-align: center;
+  }
+
+  .auctions-grid-4 {
+    grid-template-columns: 1fr;
+    width: fit-content;
+    margin: 0rem;
+    padding: 1.5rem 0rem 0rem 0rem;
+    text-align: center;
+  }
+
+  .img-section {
+    align-self: center;
+    justify-self: left;
+    max-width: auto;
+  }
+  
+  .auction-section {
+    align-self: center;
+    justify-self: left;
+  }
+  
+  .auction {
+    padding: .5rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .bid-section {
+    min-height: 320px;
+  }
+  
+
+
+
+
 }

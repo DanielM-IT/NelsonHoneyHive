@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import Moment from 'react-moment';
 import moment from 'moment';
-import PropTypes from 'prop-types'
 const AuctionItem = ({ currentBids }) => {
     const currentBid = currentBids.map(curBid => (
         <tr key={curBid._id}>
@@ -30,10 +29,6 @@ const AuctionItem = ({ currentBids }) => {
                 </table> : <h4>No bids made...</h4>}
         </Fragment>
     )
-}
-
-AuctionItem.propTypes = {
-    auction: PropTypes.object.isRequired,
 }
 
 export default AuctionItem

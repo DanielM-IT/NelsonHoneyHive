@@ -54,7 +54,7 @@ const AddAuction = ({
     return (
         <Fragment>
             <div className="auctions-grid-3">
-                <div>
+                <div className="auctions-grid-4">
                     <h1 className="large text-primary">Create Your Listing</h1>
                     <form className="form" onSubmit={onSubmit}>
                         <div className="form-group">
@@ -139,11 +139,11 @@ const AddAuction = ({
                         </Link>
                     </form>
                 </div>
-                <div className="p-3 m-3">
+                <div className="auctions-grid-4 p-3 m-3">
                     <PriceCalculator />
                 </div>
             </div>
-        </Fragment>
+        </Fragment >
     )
 }
 

@@ -9,11 +9,11 @@ const { check, validationResult } = require('express-validator')
 const User = require('../../models/User')
 
 // @route    GET api/auth
-// @desc     Test route
-// @access   Public
+// @desc     Auth route
+// @access   Private
 router.get('/', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password')
+    const user = await User.findById(req.user.id)
     res.json(user)
   } catch (error) {
     console.error(error.message)

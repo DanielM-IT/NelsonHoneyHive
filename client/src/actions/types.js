@@ -29,6 +29,9 @@ export const GET_BIDS = 'GET_BIDS'
 export const ADD_BID = 'ADD_BID'
 export const CLEAR_BIDS = 'CLEAR_BIDS'
 export const BID_ERROR = 'BID_ERROR'
+export const GET_USER = 'GET_USER'
+export const UPDATE_USER = 'UPDATE_USER'
+export const USER_ERROR = 'USER_ERROR'
 
 
 

@@ -85,7 +85,7 @@ const PriceCalculator = () => {
         const price = typePrice + texturePrice + isRawPrice
         const reserveTotal = (Math.round(((weight / 100) * price) * 100) / 100).toFixed(2)
         const startTotal = (Math.round((reserveTotal - (reserveTotal * .15)) * 100) / 100).toFixed(2)
-        console.log(startTotal)
+
         setRecStart([])
         setRecReserve([])
         setRecStart(recommendedStart => [...recommendedStart, startTotal])

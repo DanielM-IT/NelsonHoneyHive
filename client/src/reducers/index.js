@@ -5,6 +5,7 @@ import profile from './profile'
 import post from './post'
 import auction from './auction'
 import bid from './bid'
+import user from './user'
 
 export default combineReducers({
     alert,
@@ -12,5 +13,6 @@ export default combineReducers({
     profile,
     post,
     auction,
-    bid
+    bid,
+    user
 })

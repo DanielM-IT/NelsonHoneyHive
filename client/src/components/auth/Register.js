@@ -94,7 +94,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         </div>
         <div className="form-group">
           <input type="checkbox" id="isSeller" name="isSeller" value="isSeller" onChange={handleCheckBoxClick} />
-          <label for="isSeller"> Will you be selling honey products?</label>
+          <label> Will you be selling honey products?</label>
         </div>
         <input
           type="submit"

@@ -113,7 +113,6 @@ Auction.propTypes = {
     getAuctionById: PropTypes.func.isRequired,
     updateAuctionById: PropTypes.func.isRequired,
     addBid: PropTypes.func.isRequired,
-    auction: PropTypes.object.isRequired,
     bid: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
 }

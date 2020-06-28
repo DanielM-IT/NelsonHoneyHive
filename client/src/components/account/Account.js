@@ -10,7 +10,7 @@ const Account = ({
     getCurrentProfile,
     deleteAccount,
     auth: { user },
-    profile: { profile, loading }
+    profile: { loading }
 }) => {
     useEffect(() => {
         getCurrentProfile()
