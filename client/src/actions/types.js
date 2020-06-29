@@ -32,6 +32,8 @@ export const BID_ERROR = 'BID_ERROR'
 export const GET_USER = 'GET_USER'
 export const UPDATE_USER = 'UPDATE_USER'
 export const USER_ERROR = 'USER_ERROR'
+export const CREATE_TICKET = 'CREATE_TICKET'
+export const TICKET_ERROR = 'TICKET_ERROR'
 
 
 

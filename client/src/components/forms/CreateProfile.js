@@ -49,10 +49,10 @@ const CreateProfile = ({ createProfile, history }) => {
 
     return (
         <Fragment>
-            <h1 className="large text-primary">
+            <h1 className="large text-dark">
                 Create Your Profile
             </h1>
-            <p className="lead">
+            <p className="lead text-dark">
                 <i className="fas fa-user"></i> Let's get some information to make your
                 profile stand out
             </p>
@@ -124,8 +124,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
                 <div className="my-2">
                     <button onClick={() => toggleSocialInputs(!displaySocialInputs)} type="button" className="btn btn-light">
-                        Add Social Network Links
-                </button>
+                        Add Social Network Links</button>
                     <span>Optional</span>
                 </div>
 

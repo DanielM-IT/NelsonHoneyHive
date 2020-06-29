@@ -10,14 +10,14 @@ const AccountActions = ({
     if (isSeller) {
         return (
             <div className="dash-buttons">
-                <Link to="edit-account" className="btn btn-light">
-                    <i className="fas fa-edit text-primary"></i> Edit Account</Link>
-                <Link to="profile-form" className="btn btn-light">
-                    <i className="fas fa-user-circle text-primary"></i> Edit Profile</Link>
-                <Link to="add-auction" className="btn btn-light">
-                    <i className="fa fa-gavel text-primary"></i> Add Auction</Link>
-                <Link to={{ pathname: `/my-auctions/${_id}`, data: _id }} className="btn btn-light">
-                    <i className="fas fa-clipboard-list text-primary"></i> My Auctions</Link>
+                <Link to="edit-account" className="btn btn-primary">
+                    <i className="fas fa-edit text-dark"></i> Edit Account</Link>
+                <Link to="profile-form" className="btn btn-primary">
+                    <i className="fas fa-user-circle text-dark"></i> Edit Profile</Link>
+                <Link to="add-auction" className="btn btn-primary">
+                    <i className="fa fa-gavel text-dark"></i> Add Auction</Link>
+                <Link to={{ pathname: `/my-auctions/${_id}`, data: _id }} className="btn btn-primary">
+                    <i className="fas fa-clipboard-list text-dark"></i> My Auctions</Link>
             </div>
         )
     }
@@ -25,7 +25,7 @@ const AccountActions = ({
         return (
             <div className="dash-buttons">
                 <Link to="edit-account" className="btn btn-light">
-                    <i className="fas fa-edit text-primary"></i> Edit Account</Link>
+                    <i className="fas fa-edit text-dark"></i> Edit Account</Link>
             </div>
         )
 }

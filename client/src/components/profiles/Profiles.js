@@ -13,8 +13,8 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     return <Fragment>
         {loading ? <Spinner /> :
             <Fragment>
-                <h1 className="large text-primary">Suppliers</h1>
-                <p className="lead">
+                <h1 className="large text-dark">Suppliers</h1>
+                <p className="lead text-dark">
                     <i className="fab fa-connectdevelop"> Browse and connect with suppliers of honey products.</i>
                 </p>
                 <div className="profiles">

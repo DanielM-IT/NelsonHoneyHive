@@ -4,8 +4,8 @@
   --secondary-color: #DCDCDC;
   --dark-color: #1a0800ee;
   --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --danger-color: #cc342ff1;
+  --success-color: #3e7a01;
   --silver-color: #DCDCDC
 }
 
@@ -19,7 +19,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: #83580115;
   color: #333;
 }
 
@@ -45,10 +45,14 @@ hr {
   max-width: 1400px;
   margin: auto;
   overflow: hidden;
-  padding: 0 2rem;
-  margin-top: 10rem;
+  margin-top: 12rem;
   margin-bottom: 3rem;
-  min-height: 100vh;
+  min-height: 80vh;
+  padding: 0 3rem;
+}
+
+.add-pg-padding {
+  padding: 0 9rem;
 }
 
 .preserve-whitespace {
@@ -159,6 +163,9 @@ color: var(--primary-color);
 .pt {
   padding-top: 1rem;
 }
+.pt-3 {
+  padding-top: 3.3rem;
+}
 .pb {
   padding-bottom: 1rem;
 }
@@ -221,11 +228,17 @@ color: var(--primary-color);
 
 .btn-landing {
   border: 2px solid var(--primary-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
   background-color: transparent;
+  border-radius: 4px;
+  font-weight: 800;
 }
 
-.btn-primary,
+.btn-primary {
+  border: 1.5px solid #e69900b9;
+  background-color: #dcdcdc9d;
+}
+
 .bg-primary,
 .badge-primary,
 .alert-primary {
@@ -245,6 +258,7 @@ color: var(--primary-color);
 .bg-light,
 .badge-light,
 .alert-light {
+  border: .5px solid rgb(139, 139, 139);
   background: var(--light-color);
   color: #333;
 }
@@ -258,8 +272,15 @@ color: var(--primary-color);
 }
 
 .btn-green {
-  background: green;
-  color: #fff;
+  border: .5px solid var(--success-color);
+  background: var(--light-color);
+  color: #333;
+}
+
+.btn-red {
+  border: .5px solid var(--danger-color);
+  background: var(--light-color);
+  color: #333;
 }
 
 .btn-danger,
@@ -285,10 +306,6 @@ color: var(--primary-color);
   background: #fff;
   color: #333;
   border: #ccc solid 1px;
-}
-
-.bg-yellow {
-  background: #FFD87F;
 }
 
 .btn:hover {
@@ -424,6 +441,11 @@ button {
   border-bottom: solid 1px var(--primary-color);
 }
 
+.navbar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .navbar ul {
   display: flex;
 }
@@ -442,14 +464,15 @@ button {
 }
 
 .brand {
-  font-size: 1.8rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  line-height: .6;
   font-weight: 600;
 }
 
 .logo {
-  background: url('./img/logo.png') no-repeat center center/cover;
+  max-width: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Footer */
@@ -472,7 +495,7 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
   height: 100vh;
 }
 
@@ -535,14 +558,6 @@ button {
   text-align: center;
 }
 
-.profile-about .skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-
 /* Posts Page */
 .post-form .post-form-header {
   background: var(--primary-color);
@@ -587,8 +602,9 @@ button {
 .auctions-grid-2 {
   border: black solid 1px;
   display: grid;
-  grid-template-columns: 6fr 6fr 5fr;
+  grid-template-columns: 3fr 3fr 3fr;
   grid-gap: 1rem;
+  background-color: white;
 }
 .auctions-grid-3 {
   display: grid;
@@ -610,6 +626,10 @@ button {
   justify-self: left;
 }
 
+.auction-width {
+  padding: 0 3rem;
+}
+
 .auction {
   padding: .5rem;
   line-height: 1.8;
@@ -621,8 +641,20 @@ button {
   text-align: center;
 }
 
+.auction-details {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .bid-section {
   min-height: 320px;
+}
+
+.padding-margin {
+  padding-left: 1px;
+  margin-top: 1rem;
 }
 
 /* Mobile Styles */

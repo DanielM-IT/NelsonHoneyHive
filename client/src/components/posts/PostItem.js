@@ -17,7 +17,7 @@ const PostItem = ({
             <div>
                 <Link to={`/profile/${user}`}>
                     <img className='round-img' src={avatar} alt='' />
-                    <h4>{name}</h4>
+                    <h4 className="text-dark">{name}</h4>
                 </Link>
             </div>
             <div>
@@ -31,7 +31,7 @@ const PostItem = ({
                         <button
                             onClick={e => addLike(_id)}
                             type='button'
-                            className='btn btn-light'
+                            className='btn btn-green'
                         >
                             <i className='fas fa-thumbs-up' />{' '}
                             <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
@@ -39,14 +39,14 @@ const PostItem = ({
                         <button
                             onClick={e => removeLike(_id)}
                             type='button'
-                            className='btn btn-light'
+                            className='btn btn-red'
                         >
                             <i className='fas fa-thumbs-down' />
                         </button>
                         <Link to={`/posts/${_id}`} className='btn btn-primary'>
-                            Discussion{' '}
+                            View Discussion{' '}
                             {comments.length > 0 && (
-                                <span className='comment-count'>{comments.length}</span>
+                                <span className='comment-count '>{comments.length}</span>
                             )}
                         </Link>
                         {!auth.loading && user === auth.user._id && (

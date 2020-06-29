@@ -14,16 +14,18 @@ const Auctions = ({ getCurrentAuctions, auction: { auctions, loading } }) => {
         <Fragment>
             {loading ? <Spinner /> :
                 <Fragment>
-                    <h1 className="large text-primary">Products</h1>
-                    <p className="lead">
-                        <i className="fab fa-connectdevelop"> Browse current auctions</i>
-                    </p>
-                    <div className="auctions-grid">
-                        {auctions.length > 0 ? (
-                            auctions.map(auction => (
-                                <AuctionItem key={auction._id} auction={auction} />
-                            ))
-                        ) : <h4>No auctions found...</h4>}
+                    <div className="add-pg-padding">
+                        <h1 className="large text-dark">Auctions</h1>
+                        <p className="lead text-dark">
+                            <i className="fab fa-connectdevelop"> Browse current auctions</i>
+                        </p>
+                        <div className="auctions-grid">
+                            {auctions.length > 0 ? (
+                                auctions.map(auction => (
+                                    <AuctionItem key={auction._id} auction={auction} />
+                                ))
+                            ) : <h4>No auctions found...</h4>}
+                        </div>
                     </div>
                 </Fragment>}
         </Fragment>

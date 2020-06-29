@@ -21,9 +21,9 @@ const Account = ({
             <Spinner />
         ) : (
                 <Fragment>
-                    <div>
+                    <div className="add-pg-padding">
                         <h1 className="large text-dark">Account</h1>
-                        <p className="lead">
+                        <p className="lead text-dark">
                             <i className="fas fa-user"></i> Welcome {user && user.name}
                         </p>
                         <Fragment>

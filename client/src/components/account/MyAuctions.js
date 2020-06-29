@@ -21,8 +21,8 @@ const MyAuctions = ({
             <Fragment>
                 {loading ? <Spinner /> :
                     <Fragment>
-                        <h1 className="large text-primary">My Auctions</h1>
-                        <p className="lead">
+                        <h1 className="large text-dark">My Auctions</h1>
+                        <p className="lead text-dark">
                             <i className="fab fa-connectdevelop"> View all your listings</i>
                         </p>
                         <Link to="/account" className="btn btn-light my">

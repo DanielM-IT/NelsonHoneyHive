@@ -70,21 +70,23 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     )
 
     return (
-        <nav className="navbar bg-dark">
+        <nav>
+            <div className="navbar bg-dark">
+                <div className="pt-3">
+                    {!loading && (<Fragment>{isAuthenticated ? leftAuthLinks : leftGuestLinks}</Fragment>)}
+                </div>
+                <div className="navbar-grid">
+                    <img src="https://nelson-honey-hive.s3-ap-southeast-2.amazonaws.com/logo.png" alt="logo" className="logo" />
 
-            <div>
-                {!loading && (<Fragment>{isAuthenticated ? leftAuthLinks : leftGuestLinks}</Fragment>)}
-            </div>
-            <div className="grid-1">
-                <img src='.../../../public/icons/logo.png' alt="logo" className="logo" />
+                    <Link to='/' className="text-primary brand">
+                        Nelson Honey Hive
+                        </Link>
+                </div >
+                <div className="pt-3">
 
-                <Link to='/' className="text-primary brand">
-                    Nelson Honey Hive
-                </Link>
-            </div>
-            <div>
+                    {!loading && (<Fragment>{isAuthenticated ? rightAuthLinks : rightGuestLinks}</Fragment>)}
+                </div>
 
-                {!loading && (<Fragment>{isAuthenticated ? rightAuthLinks : rightGuestLinks}</Fragment>)}
             </div>
         </nav >
     )

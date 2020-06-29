@@ -20,7 +20,7 @@ const Landing = ({ isAuthenticated }) => {
                         <Link to='/register' className="btn btn-landing">
                             Sell Honey
                         </Link>
-                        <Link to='/login' className="btn btn-landing">
+                        <Link to='/auctions' className="btn btn-landing">
                             Shop Now
                         </Link>
                     </div>

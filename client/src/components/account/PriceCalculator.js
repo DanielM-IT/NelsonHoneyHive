@@ -95,7 +95,7 @@ const PriceCalculator = () => {
 
     return (
         <div className="preserve-whitespace">
-            <h3 className="medium text-primary">Calculate Recommended Price</h3>
+            <h3 className="medium text-dark">Calculate Recommended Price</h3>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-group">
                     <input
@@ -143,10 +143,10 @@ const PriceCalculator = () => {
                     <button type="submit" className="btn btn-primary my-1">Calculate</button>
                 </div>
                 <div>
-                    <h4 className="small text-primary"><br />Recommended Start Price:         ${recommendedStart}</h4>
+                    <h4 className="small text-dark"><br />Recommended Start Price:         ${recommendedStart}</h4>
                 </div>
                 <div>
-                    <h4 className="small text-primary">Recommended Reserve Price:   ${recommendedReserve}</h4>
+                    <h4 className="small text-dark">Recommended Reserve Price:   ${recommendedReserve}</h4>
                 </div>
             </form>
 

@@ -62,8 +62,8 @@ const ProfileForm = ({
 
     return (
         <Fragment>
-            <h1 className="large text-primary">Edit Your Profile</h1>
-            <p className="lead">
+            <h1 className="large text-dark">Edit Your Profile</h1>
+            <p className="lead text-dark">
                 <i className="fas fa-user" /> Add some changes to your profile
             </p>
             <form className="form" onSubmit={onSubmit}>
@@ -117,9 +117,9 @@ const ProfileForm = ({
                     <button
                         onClick={() => toggleSocialInputs(!displaySocialInputs)}
                         type="button"
-                        className="btn btn-light"
+                        className="btn btn-green"
                     >
-                        Add Social Network Linkst
+                        Add Social Network Links
           </button>
                     <span>Optional</span>
                 </div>

@@ -36,7 +36,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       register({ name, email, password, isSeller })
     }
   }
-  console.log(isSeller)
+
   // Redirect if logged in 
   if (isAuthenticated) {
     return <Redirect to='/account' />
@@ -44,8 +44,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Sign Up</h1>
-      <p className="lead">
+      <h1 className="large text-dark">Sign Up</h1>
+      <p className="lead text-dark">
         <i className="fas fa-user" /> Create Your Account
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>

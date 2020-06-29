@@ -14,8 +14,8 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     if (posts != null) {
         return loading ? (<Spinner />) : (
             <Fragment>
-                <h1 className="large text-primary">Community</h1>
-                <p className="lead">
+                <h1 className="large text-dark">Community</h1>
+                <p className="lead text-dark">
                     <i className="fas fa-user" /> Welcome to the Honey Hive community!
             </p>
                 <PostForm />

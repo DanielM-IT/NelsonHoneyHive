@@ -45,17 +45,21 @@ const AddAuction = ({
 
     const onSubmit = e => {
         e.preventDefault()
-        formData.currentprice = formData.startbid
-        formData.seller = user._id
-        formData.enddate = moment().add(auctionLength, 'days').toDate()
-        createAuction(formData, history)
+        if (formData.reserve >= formData.startbid) {
+            formData.currentprice = formData.startbid
+            formData.seller = user._id
+            formData.enddate = moment().add(auctionLength, 'days').toDate()
+            createAuction(formData, history)
+        }
+        else
+            window.alert("Reserve must be greater than or equal to the starting bid.")
     }
 
     return (
         <Fragment>
-            <div className="auctions-grid-3">
+            <div className="auctions-grid-3 add-pg-padding">
                 <div className="auctions-grid-4">
-                    <h1 className="large text-primary">Create Your Listing</h1>
+                    <h1 className="large text-dark">Create Your Listing</h1>
                     <form className="form" onSubmit={onSubmit}>
                         <div className="form-group">
                             <input

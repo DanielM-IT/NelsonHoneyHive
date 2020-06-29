@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Spinner from '../layout/Spinner'
 import AuctionDetails from './AuctionDetails'
 import Bids from './Bids'
@@ -65,7 +66,11 @@ const Auction = ({
             <Fragment>
                 {loading ? (<Spinner />) : (
                     <Fragment>
-                        <div className="auctions-grid-2 preserve-whitespace">
+                        <Link to="/auctions" className="btn btn-light">
+                            Back To Browse
+                        </Link>
+                        <div className="auctions-grid-2 preserve-whitespace padding-margin">
+
                             <div className="img-section">
                                 <img src={singleAuction.imageurl} alt="" />
                             </div>

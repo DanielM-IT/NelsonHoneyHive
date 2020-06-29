@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
 import Footer from './components/layout/Footer'
-import Routes from './components/routing/Routes'
+import Routes from './components/routes/Routes'
 import ScrollToTop from './components/layout/ScrollToTop'
 
 // Import the chatbot component
@@ -11,11 +11,11 @@ import Chat from './Chat'
 
 // Redux
 import { Provider } from 'react-redux'
-import store from './store'
+import store from './helpers/store'
 import { loadUser } from './actions/auth'
 import setAuthToken from './utils/setAuthToken'
 
-import './App.css';
+import './css/App.css';
 
 const App = () => {
   useEffect(() => {

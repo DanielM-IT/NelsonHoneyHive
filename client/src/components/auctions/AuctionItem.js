@@ -15,8 +15,8 @@ const AuctionItem = ({
             <Link to={{ pathname: `/auction/${_id}`, data: _id }} className='auction bg-yellow'>
                 <img src={imageurl} alt="" className='round-img' />
             </Link>
-            <Link to={{ pathname: `/auction/${_id}`, data: _id }} className='auction'>
-                <h2>{listingname} ${currentprice}</h2>
+            <Link to={{ pathname: `/auction/${_id}`, data: _id }} className='auction-details'>
+                <h2>{listingname} <br /> ${currentprice}</h2>
             </Link>
         </div>
     )
