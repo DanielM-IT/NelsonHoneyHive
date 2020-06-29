@@ -11,14 +11,21 @@ const AuctionItem = ({
     } }) => {
 
     return (
-        <div className='bg-white'>
+        <div className='bg-white preserve-whitespace'>
             <Link to={{ pathname: `/auction/${_id}`, data: _id }} className='auction bg-yellow'>
-                <img src={imageurl} alt="" className='round-img' />
+                <div className="auction-card-img">
+                    <img src={imageurl} alt="" className='round-img' />
+                </div>
             </Link>
-            <Link to={{ pathname: `/auction/${_id}`, data: _id }} className='auction-details'>
-                <h2>{listingname} <br /> ${currentprice}</h2>
-            </Link>
-        </div>
+            <div>
+                <Link to={{ pathname: `/auction/${_id}`, data: _id }} className='auction-details'>
+                    <div className="grid-0">
+                        <h2 className="small">{listingname}</h2>
+                        <h2 className="text-dark small">${currentprice}</h2>
+                    </div>
+                </Link>
+            </div>
+        </div >
     )
 }
 

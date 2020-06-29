@@ -7,7 +7,8 @@ import { getCurrentUser, updateCurrentUser } from '../../actions/user'
 const initialState = {
     name: '',
     password: '',
-    isSeller: false
+    isSeller: false,
+    errors: {}
 }
 
 const EditAccount = ({
@@ -30,7 +31,8 @@ const EditAccount = ({
     const {
         name,
         password,
-        isSeller
+        isSeller,
+        errors
     } = formData
 
     const handleCheckBoxClick = e => {
@@ -42,16 +44,47 @@ const EditAccount = ({
         })
     }
 
-
-
     const onChange = e =>
         setFormData({ ...formData, [e.target.name]: e.target.value })
 
     const onSubmit = e => {
         e.preventDefault()
+        if (validateForm()) {
+            updateCurrentUser(user._id, { name, password, isSeller })
+            window.location.reload(false)
+        }
+    }
 
-        updateCurrentUser(user._id, { name, password, isSeller })
-        window.location.reload(false)
+    function validateForm() {
+        let fields = formData
+        let errors = {}
+        let formIsValid = true
+
+        if (!fields["name"]) {
+            formIsValid = false
+            errors["name"] = "*Please enter a name."
+        }
+        if (typeof fields["name"] !== "undefined") {
+            if (!fields["name"].match(/^[a-zA-Z1-9]*$/)) {
+                formIsValid = false
+                errors["name"] = "*Please enter alphabet characters or numbers only."
+            }
+        }
+
+        if (!fields["password"]) {
+            formIsValid = false
+            errors["password"] = "*Please enter a password."
+        }
+        if (typeof fields["password"] !== "undefined") {
+            if (!fields["password"].match(/^.{6,}$/)) {
+                formIsValid = false
+                errors["password"] = "*Please enter a secure and strong password of 6 or more characters."
+            }
+        }
+
+        setFormData({ ...formData, errors: errors })
+
+        return formIsValid
     }
 
 
@@ -61,7 +94,7 @@ const EditAccount = ({
                 <h1 className="large text-dark">Edit Your Account</h1>
                 <p className="lead text-dark">
                     <i className="fas fa-edit" /> Add some changes to your account
-            </p>
+                </p>
                 <form className="form" onSubmit={onSubmit}>
                     <div className="form-group">
                         <input
@@ -72,8 +105,9 @@ const EditAccount = ({
                             onChange={onChange}
                         />
                         <small className="form-text">
-                            Could be your own company or one you work for
-                    </small>
+                            Your full or preferred name
+                        </small>
+                        <div className='error-message'>{formData.errors.name}</div>
                     </div>
                     <div className="form-group">
                         <input
@@ -84,8 +118,9 @@ const EditAccount = ({
                             onChange={onChange}
                         />
                         <small className="form-text">
-                            Could be your own or a company website
-                    </small>
+                            Enter a strong and secure password
+                        </small>
+                        <div className='error-message'>{formData.errors.password}</div>
                     </div>
                     <div className="form-group">
                         <label>Is a seller:  </label>

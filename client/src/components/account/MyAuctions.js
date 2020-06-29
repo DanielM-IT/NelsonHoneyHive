@@ -21,19 +21,21 @@ const MyAuctions = ({
             <Fragment>
                 {loading ? <Spinner /> :
                     <Fragment>
-                        <h1 className="large text-dark">My Auctions</h1>
-                        <p className="lead text-dark">
-                            <i className="fab fa-connectdevelop"> View all your listings</i>
-                        </p>
-                        <Link to="/account" className="btn btn-light my">
-                            Back To My Hive
+                        <div className="add-pg-padding">
+                            <h1 className="large text-dark">My Auctions</h1>
+                            <p className="lead text-dark">
+                                <i className="fab fa-connectdevelop"> View all your listings</i>
+                            </p>
+                            <Link to="/account" className="btn btn-light my">
+                                Back To My Hive
                         </Link>
-                        <div className="auctions-grid">
-                            {auctions.length > 0 ? (
-                                auctions.map(auction => (
-                                    <MyAuction key={auction._id} auction={auction} />
-                                ))
-                            ) : <h4>No auctions found...</h4>}
+                            <div className="auctions-grid">
+                                {auctions.length > 0 ? (
+                                    auctions.map(auction => (
+                                        <MyAuction key={auction._id} auction={auction} />
+                                    ))
+                                ) : <h4>No auctions found...</h4>}
+                            </div>
                         </div>
                     </Fragment>}
             </Fragment >

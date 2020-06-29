@@ -9,20 +9,21 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     useEffect(() => {
         getProfiles()
     }, [getProfiles])
-    console.log(profiles)
     return <Fragment>
         {loading ? <Spinner /> :
             <Fragment>
-                <h1 className="large text-dark">Suppliers</h1>
-                <p className="lead text-dark">
-                    <i className="fab fa-connectdevelop"> Browse and connect with suppliers of honey products.</i>
-                </p>
-                <div className="profiles">
-                    {profiles.length > 0 ? (
-                        profiles.map(profile => (
-                            <ProfileItem key={profile._id} profile={profile} />
-                        ))
-                    ) : <h4>No profiles found...</h4>}
+                <div className="add-pg-padding">
+                    <h1 className="large text-dark">Suppliers</h1>
+                    <p className="lead text-dark">
+                        <i className="fab fa-connectdevelop"> Browse and connect with suppliers of honey products.</i>
+                    </p>
+                    <div className="profiles">
+                        {profiles.length > 0 ? (
+                            profiles.map(profile => (
+                                <ProfileItem key={profile._id} profile={profile} />
+                            ))
+                        ) : <h4>No profiles found...</h4>}
+                    </div>
                 </div>
             </Fragment>}
     </Fragment >

@@ -14,15 +14,17 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     if (posts != null) {
         return loading ? (<Spinner />) : (
             <Fragment>
-                <h1 className="large text-dark">Community</h1>
-                <p className="lead text-dark">
-                    <i className="fas fa-user" /> Welcome to the Honey Hive community!
-            </p>
-                <PostForm />
-                <div className="posts">
-                    {posts.map((post) => (
-                        <PostItem key={post._id} post={post} />
-                    ))}
+                <div className="add-pg-padding">
+                    <h1 className="large text-dark">Community</h1>
+                    <p className="lead text-dark">
+                        <i className="fas fa-user" /> Welcome to the Honey Hive community!
+                    </p>
+                    <PostForm />
+                    <div className="posts">
+                        {posts.map((post) => (
+                            <PostItem key={post._id} post={post} />
+                        ))}
+                    </div>
                 </div>
             </Fragment>
         )

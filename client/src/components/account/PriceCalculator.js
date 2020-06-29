@@ -10,7 +10,8 @@ const initialState = {
     isRawPrice: 0,
     isRaw: false,
     recommendedReserve: '',
-    recommendedStart: ''
+    recommendedStart: '',
+    errors: {}
 }
 
 const PriceCalculator = () => {
@@ -27,6 +28,7 @@ const PriceCalculator = () => {
         texturePrice,
         isRawPrice,
         isRaw,
+        errors
     } = calculatorData
 
     function honeyType(givenType) {
@@ -78,19 +80,43 @@ const PriceCalculator = () => {
 
     const onSubmit = async e => {
         e.preventDefault()
-        honeyType(givenType)
-        honeyTexture(givenTexture)
-        honeyRaw(isRaw)
+        if (validateForm()) {
+            honeyType(givenType)
+            honeyTexture(givenTexture)
+            honeyRaw(isRaw)
 
-        const price = typePrice + texturePrice + isRawPrice
-        const reserveTotal = (Math.round(((weight / 100) * price) * 100) / 100).toFixed(2)
-        const startTotal = (Math.round((reserveTotal - (reserveTotal * .15)) * 100) / 100).toFixed(2)
+            const price = typePrice + texturePrice + isRawPrice
+            const reserveTotal = (Math.round(((weight / 100) * price) * 100) / 100).toFixed(2)
+            const startTotal = (Math.round((reserveTotal - (reserveTotal * .15)) * 100) / 100).toFixed(2)
 
-        setRecStart([])
-        setRecReserve([])
-        setRecStart(recommendedStart => [...recommendedStart, startTotal])
-        setRecReserve(recommendedReserve => [...recommendedReserve, reserveTotal])
+            setRecStart([])
+            setRecReserve([])
+            setRecStart(recommendedStart => [...recommendedStart, startTotal])
+            setRecReserve(recommendedReserve => [...recommendedReserve, reserveTotal])
+        }
     }
+
+    function validateForm() {
+        let fields = calculatorData
+        let errors = {}
+        let formIsValid = true
+
+        if (!fields["weight"]) {
+            formIsValid = false
+            errors["weight"] = "*Please enter a weight."
+        }
+        if (typeof fields["weight"] !== "undefined") {
+            if (!fields["weight"].match(/^[1-9]\d*(\.\d+)?$/)) {
+                formIsValid = false
+                errors["weight"] = "*Please enter numeric values and decimals only."
+            }
+        }
+
+        setData({ ...calculatorData, errors: errors })
+
+        return formIsValid
+    }
+
 
 
     return (
@@ -106,6 +132,7 @@ const PriceCalculator = () => {
                         onChange={onChange}
                     />
                     <small className="form-text">Provide the weight of your honey in grams</small>
+                    <div className='error-message'>{calculatorData.errors.weight}</div>
                 </div>
                 <div className="form-group">
                     <select

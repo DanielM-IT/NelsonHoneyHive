@@ -48,14 +48,27 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div >
-
                     </div >
+                    <div className="social-icons">
+                        <a href="https://www.facebook.com/" target='_blank' rel='noopener noreferrer'>
+                            <i className="fab fa-facebook fa-2x icon"></i>
+                        </a>
+                        <a href="https://twitter.com/" target='_blank' rel='noopener noreferrer'>
+                            <i className="fab fa-twitter fa-2x icon"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target='_blank' rel='noopener noreferrer'>
+                            <i className="fab fa-instagram fa-2x icon"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target='_blank' rel='noopener noreferrer'>
+                            <i className="fab fa-youtube fa-2x icon"></i>
+                        </a>
+                    </div>
                 </div >
             </div >
             <hr />
-            <div>
+            <div className="preserve-whitespace">
                 <p className="col-sm">
-                    &copy;{new Date().getFullYear()} Nelson Honey Hive | All rights reserved | Terms of service | Privacy
+                    &copy;{new Date().getFullYear()} Nelson Honey Hive  |  All rights reserved  |  Terms of service  |  Privacy
                 </p>
             </div>
         </div >

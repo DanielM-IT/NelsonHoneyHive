@@ -17,7 +17,8 @@ const initialState = {
     reserve: '',
     shipping: '',
     seller: '',
-    auctionLength: '7'
+    auctionLength: '7',
+    errors: {}
 }
 
 const AddAuction = ({
@@ -37,7 +38,8 @@ const AddAuction = ({
         reserve,
         shipping,
         seller,
-        auctionLength
+        auctionLength,
+        errors
     } = formData
 
     const onChange = e =>
@@ -45,14 +47,78 @@ const AddAuction = ({
 
     const onSubmit = e => {
         e.preventDefault()
-        if (formData.reserve >= formData.startbid) {
-            formData.currentprice = formData.startbid
-            formData.seller = user._id
-            formData.enddate = moment().add(auctionLength, 'days').toDate()
-            createAuction(formData, history)
+        if (validateForm()) {
+            if (formData.reserve >= formData.startbid) {
+                formData.currentprice = formData.startbid
+                formData.seller = user._id
+                formData.enddate = moment().add(auctionLength, 'days').toDate()
+                createAuction(formData, history)
+            }
+            else
+                window.alert("Reserve must be greater than or equal to the starting bid.")
         }
-        else
-            window.alert("Reserve must be greater than or equal to the starting bid.")
+    }
+
+    function validateForm() {
+        let fields = formData
+        let errors = {}
+        let formIsValid = true
+
+        if (!fields["listingname"]) {
+            formIsValid = false
+            errors["listingname"] = "*Please enter a listing name."
+        }
+        if (typeof fields["listingname"] !== "undefined") {
+            if (!fields["listingname"].match(/^[a-zA-Z ]*$/)) {
+                formIsValid = false
+                errors["listingname"] = "*Please enter alphabet characters only."
+            }
+        }
+
+        if (!fields["description"]) {
+            formIsValid = false
+            errors["description"] = "*Please enter a description."
+        }
+
+        if (!fields["startbid"]) {
+            formIsValid = false
+            errors["startbid"] = "*Please enter a starting bid."
+        }
+
+        if (typeof fields["startbid"] !== "undefined") {
+            if (!fields["startbid"].match(/^[1-9]\d*(\.\d+)?$/)) {
+                formIsValid = false
+                errors["startbid"] = "*Please enter numeric values and decimals only."
+            }
+        }
+
+        if (!fields["reserve"]) {
+            formIsValid = false
+            errors["reserve"] = "*Please enter a reserve."
+        }
+
+        if (typeof fields["reserve"] !== "undefined") {
+            if (!fields["reserve"].match(/^[1-9]\d*(\.\d+)?$/)) {
+                formIsValid = false
+                errors["reserve"] = "*Please enter numeric values and decimals only."
+            }
+        }
+
+        if (!fields["shipping"]) {
+            formIsValid = false
+            errors["shipping"] = "*Please enter shipping costs."
+        }
+
+        if (typeof fields["shipping"] !== "undefined") {
+            if (!fields["shipping"].match(/^[1-9]\d*(\.\d+)?$/)) {
+                formIsValid = false
+                errors["shipping"] = "*Please enter numeric values and decimals only."
+            }
+        }
+
+        setFormData({ ...formData, errors: errors })
+
+        return formIsValid
     }
 
     return (
@@ -70,6 +136,7 @@ const AddAuction = ({
                                 onChange={onChange}
                             />
                             <small className="form-text">Name of your listing</small>
+                            <div className='error-message'>{formData.errors.listingname}</div>
                         </div>
                         <div className="form-group">
                             <textarea
@@ -80,6 +147,7 @@ const AddAuction = ({
                                 onChange={onChange}
                             />
                             <small className="form-text">Give your listing  a description</small>
+                            <div className='error-message'>{formData.errors.description}</div>
                         </div>
                         <div className="form-group">
                             <input
@@ -90,6 +158,7 @@ const AddAuction = ({
                                 onChange={onChange}
                             />
                             <small className="form-text">Give your listing a starting price</small>
+                            <div className='error-message'>{formData.errors.startbid}</div>
                         </div>
                         <div className="form-group">
                             <input
@@ -100,6 +169,7 @@ const AddAuction = ({
                                 onChange={onChange}
                             />
                             <small className="form-text">Give your listing a reserve price</small>
+                            <div className='error-message'>{formData.errors.reserve}</div>
                         </div>
                         <div className="form-group">
                             <input
@@ -110,6 +180,7 @@ const AddAuction = ({
                                 onChange={onChange}
                             />
                             <small className="form-text">Provide the shipping costs of your listing</small>
+                            <div className='error-message'>{formData.errors.shipping}</div>
                         </div>
                         <div className="form-group">
                             <input

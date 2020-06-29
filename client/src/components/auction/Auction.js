@@ -43,7 +43,19 @@ const Auction = ({
         if (isAuthenticated) {
             const auctionData = { ...initialState }
 
-            if (amount > singleAuction.currentprice || singleAuction.numberofbids === 0) {
+            if (amount == singleAuction.startbid && singleAuction.numberofbids === 0) {
+                auctionData.currentprice = amount
+                auctionData.numberofbids += 1
+                if (amount >= singleAuction.reserve) {
+                    auctionData.reservemet = true
+                }
+                addBid(match.params.id, { amount })
+                updateAuctionById(match.params.id, auctionData)
+                setText('')
+                window.location.reload(false)
+
+            }
+            else if (amount > singleAuction.currentprice) {
                 auctionData.currentprice = amount
                 auctionData.numberofbids += 1
                 if (amount >= singleAuction.reserve) {
@@ -55,7 +67,7 @@ const Auction = ({
                 window.location.reload(false)
             }
             else
-                window.alert("Bid must be greater than the current top bid")
+                window.alert("Bid must be greater than the current bid")
         }
         else
             history.push('/login')
@@ -71,7 +83,7 @@ const Auction = ({
                         </Link>
                         <div className="auctions-grid-2 preserve-whitespace padding-margin">
 
-                            <div className="img-section">
+                            <div className="img-section auction-card-img">
                                 <img src={singleAuction.imageurl} alt="" />
                             </div>
                             <div className="auction-section">

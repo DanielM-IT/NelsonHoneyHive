@@ -59,6 +59,10 @@ hr {
   white-space: pre-wrap;
 }
 
+.error-message {
+  color: var(--danger-color);
+}
+
 /* Text Styles*/
 .x-large {
   font-size: 4rem;
@@ -327,6 +331,23 @@ color: var(--primary-color);
   margin: 1.5rem 0;
 }
 
+/* Social Media Icons */
+i.fa-twitter {
+  color: #38a1f3;
+}
+i.fa-facebook {
+  color: #3b5998;
+}
+i.fa-instagram {
+  color: #3f729b;
+}
+i.fa-youtube {
+  color: #c4302b;
+}
+i.fa-linkedin {
+  color: #0077b5;
+}
+
 /* Overlay */
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.5);
@@ -358,7 +379,10 @@ color: var(--primary-color);
   grid-template-columns: 1fr;
   grid-gap: 1rem;
 }
-
+.grid-0{
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
 /* Forms */
 .textarea {
@@ -400,22 +424,6 @@ button {
 .form .social-input i {
   padding: 0.5rem;
   width: 4rem;
-}
-
-.form .social-input i.fa-twitter {
-  color: #38a1f3;
-}
-.form .social-input i.fa-facebook {
-  color: #3b5998;
-}
-.form .social-input i.fa-instagram {
-  color: #3f729b;
-}
-.form .social-input i.fa-youtube {
-  color: #c4302b;
-}
-.form .social-input i.fa-linkedin {
-  color: #0077b5;
 }
 
 .table th,
@@ -511,6 +519,15 @@ button {
   color: var(--primary-color);
 }
 
+.social-icons {
+  display: flex;
+  justify-content: left;
+  margin-top: 4rem;
+}
+
+.icon {
+  padding: .5rem;
+}
 
 /* Landing Page */
 .landing {
@@ -614,6 +631,16 @@ button {
 }
 
 /* Auctions Pages */
+.auction-card-img {
+  min-height: 250px;
+  width: 100%;
+  background-image: url(https://nelson-honey-hive.s3-ap-southeast-2.amazonaws.com/no_image.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-bottom: 1px solid var(--silver-color);
+}
+
 .auctions-grid {
   display: grid;
   grid-template-columns: 3fr 3fr 3fr 3fr;
@@ -637,12 +664,17 @@ button {
   grid-gap: 1rem;
 }
 .img-section {
-  align-self: center;
   justify-self: left;
+  min-height: 250px;
+  width: 100%;
+  background-image: url(https://nelson-honey-hive.s3-ap-southeast-2.amazonaws.com/no_image.png);
+  background-size: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .auction-section {
-  align-self: center;
+  margin-top: 6rem;
   justify-self: left;
 }
 
@@ -813,9 +845,4 @@ button {
   .bid-section {
     min-height: 320px;
   }
-  
-
-
-
-
 }
