@@ -5,17 +5,18 @@ import PropTypes from 'prop-types'
 import { logout } from '../../actions/auth'
 
 
+
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const leftAuthLinks = (
         <ul>
             <li>
-                <Link to='/profiles'>Suppliers</Link>
+                <Link to='/profiles' className="text-secondary">Suppliers</Link>
             </li>
             <li>
-                <Link to='/posts'>Community</Link>
+                <Link to='/posts' className="text-secondary">Community</Link>
             </li>
             <li>
-                <Link to='/support'>Support</Link>
+                <Link to='/support' className="text-secondary">Support</Link>
             </li>
         </ul>
     )
@@ -23,16 +24,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const rightAuthLinks = (
         <ul>
             <li>
-                <Link to='/auctions'>Browse Store</Link>
+                <Link to='/auctions' className="text-secondary">Browse Store</Link>
             </li>
             <li>
-                <Link to='/account'>
+                <Link to='/account' className="text-secondary">
                     <i className='fas fa-user' />{' '}
                     <span className='hide-sm'>My Hive</span>
                 </Link>
             </li>
             <li>
-                <a onClick={logout} href='#!'>
+                <a onClick={logout} href='#!' className="text-secondary">
                     <i className='fas fa-sign-out-alt' />{' '}
                     <span className='hide-sm'>Logout</span>
                 </a>
@@ -43,13 +44,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const leftGuestLinks = (
         <ul>
             <li>
-                <Link to='/profiles'>Suppliers</Link>
+                <Link to='/profiles' className="text-secondary">Suppliers</Link>
             </li>
             <li>
-                <Link to='/posts'>Community</Link>
+                <Link to='/posts' className="text-secondary">Community</Link>
             </li>
             <li>
-                <Link to='/support'>Support</Link>
+                <Link to='/support' className="text-secondary">Support</Link>
             </li>
         </ul>
     )
@@ -57,28 +58,35 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const rightGuestLinks = (
         <ul>
             <li>
-                <Link to='/auctions'>Browse Store</Link>
+                <Link to='/auctions' className="text-secondary">Browse Store</Link>
             </li>
             <li>
-                <Link to='/register'>Register</Link>
+                <Link to='/register' className="text-secondary">Register</Link>
             </li>
             <li>
-                <Link to='/login'>Login</Link>
+                <Link to='/login' className="text-secondary">Login</Link>
             </li>
         </ul>
     )
 
     return (
         <nav className="navbar bg-dark">
-            <div></div>
-            {!loading && (<Fragment>{isAuthenticated ? leftAuthLinks : leftGuestLinks}</Fragment>)}
-            <h1>
-                <Link to='/'>
+
+            <div>
+                {!loading && (<Fragment>{isAuthenticated ? leftAuthLinks : leftGuestLinks}</Fragment>)}
+            </div>
+            <div className="grid-1">
+                <img src='.../../../public/icons/logo.png' alt="logo" className="logo" />
+
+                <Link to='/' className="text-primary brand">
                     Nelson Honey Hive
                 </Link>
-            </h1>
-            {!loading && (<Fragment>{isAuthenticated ? rightAuthLinks : rightGuestLinks}</Fragment>)}
-        </nav>
+            </div>
+            <div>
+
+                {!loading && (<Fragment>{isAuthenticated ? rightAuthLinks : rightGuestLinks}</Fragment>)}
+            </div>
+        </nav >
     )
 }
 

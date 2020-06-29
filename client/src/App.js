@@ -2,7 +2,10 @@ import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
+import Footer from './components/layout/Footer'
 import Routes from './components/routing/Routes'
+import ScrollToTop from './components/layout/ScrollToTop'
+
 // Import the chatbot component
 import Chat from './Chat'
 
@@ -25,15 +28,17 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
+          <ScrollToTop />
           <Switch>
             <Route exact path='/' component={Landing} />
             <Route component={Routes} />
           </Switch>
         </Fragment>
       </Router>
+      <Footer />
       {/* Display the chatbot component in the interface */}
       <Chat />
-    </Provider>
+    </Provider >
   )
 }
 

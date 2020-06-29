@@ -21,19 +21,21 @@ const Account = ({
             <Spinner />
         ) : (
                 <Fragment>
-                    <h1 className="large text-primary">Account</h1>
-                    <p className="lead">
-                        <i className="fas fa-user"></i> Welcome {user && user.name}
-                    </p>
-                    <Fragment>
-                        <AccountActions user={user} />
-                        <AccountDetails user={user} />
-                        <div className="my-2">
-                            <button className="btn btn-danger" onClick={() => deleteAccount()} >
-                                <i className="fas fa-user-minus"></i> Delete My Account
+                    <div>
+                        <h1 className="large text-dark">Account</h1>
+                        <p className="lead">
+                            <i className="fas fa-user"></i> Welcome {user && user.name}
+                        </p>
+                        <Fragment>
+                            <AccountActions user={user} />
+                            <AccountDetails user={user} />
+                            <div className="my-2">
+                                <button className="btn btn-danger" onClick={() => deleteAccount()} >
+                                    <i className="fas fa-user-minus"></i> Delete My Account
                             </button>
-                        </div>
-                    </Fragment>
+                            </div>
+                        </Fragment>
+                    </div>
                 </Fragment>
             )
     }

@@ -1,10 +1,12 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
-  --dark-color: #343a40;
+  --primary-color: #E69900;
+  --secondary-color: #DCDCDC;
+  --dark-color: #1a0800ee;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --silver-color: #DCDCDC
 }
 
 * {
@@ -34,6 +36,10 @@ img {
   width: 100%;
 }
 
+hr {
+  border-color: var(--primary-color);
+}
+
 /* Utilities */
 .container {
   max-width: 1400px;
@@ -42,6 +48,7 @@ img {
   padding: 0 2rem;
   margin-top: 10rem;
   margin-bottom: 3rem;
+  min-height: 100vh;
 }
 
 .preserve-whitespace {
@@ -62,7 +69,7 @@ img {
 }
 
 .medium {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -77,21 +84,38 @@ img {
   font-weight:  bolder;
 }
 
+.call-to-action {
+color: var(--primary-color);
+}
+
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .text-red {
   color: #8B0000;
 }
 
+.text-silver {
+ color: var(--silver-color);
+}
+
 .text-center {
   text-align: center;
 }
 
+.text-light {
+  color: var(--light-color);
+}
+
 .text-primary {
   color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
 }
 
 .text-dark {
@@ -195,12 +219,26 @@ img {
   color: #333;
 }
 
+.btn-landing {
+  border: 2px solid var(--primary-color);
+  color: var(--secondary-color);
+  background-color: transparent;
+}
+
 .btn-primary,
 .bg-primary,
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
-  color: #fff;
+  color: #000;
+}
+
+.btn-secondary,
+.bg-secondary,
+.badge-secondary,
+.alert-secondary {
+  background: var(--secondary-color);
+  color: #000;
 }
 
 .btn-light,
@@ -274,13 +312,36 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
+
+/* Grids */
+.grid-4 {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-gap: 1rem;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 6fr 6fr 5fr;
+  grid-gap: 1rem;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  grid-gap: 1rem;
+}
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
 
 /* Forms */
 .textarea {
@@ -361,7 +422,6 @@ button {
   width: 100%;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
 }
 
 .navbar ul {
@@ -369,7 +429,6 @@ button {
 }
 
 .navbar a {
-  color: #fff;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -381,6 +440,34 @@ button {
 .navbar .welcome span {
   margin-right: 0.6rem;
 }
+
+.brand {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.logo {
+  background: url('./img/logo.png') no-repeat center center/cover;
+}
+
+/* Footer */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 15%;
+  width: 100%;
+  top: 0;
+  border-bottom: solid 1px var(--primary-color);
+  background-color: var(--dark-color);
+  color: #C0C0C0;
+  height: auto;
+  text-align: center;
+}
+
 
 /* Landing Page */
 .landing {
