@@ -33,9 +33,9 @@ const App = () => {
             <Route exact path='/' component={Landing} />
             <Route component={Routes} />
           </Switch>
+          <Footer />
         </Fragment>
       </Router>
-      <Footer />
       {/* Display the chatbot component in the interface */}
       <Chat />
     </Provider >
