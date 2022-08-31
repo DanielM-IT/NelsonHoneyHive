@@ -19,7 +19,7 @@
     "express-validator": "^6.5.0",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.35",
     "mongoose": "^5.9.16",
     "request": "^2.88.2",
     "uuid": "^8.1.0"
